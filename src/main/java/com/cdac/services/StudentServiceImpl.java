@@ -1,5 +1,6 @@
 package com.cdac.services;
 
+import java.io.File;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -39,6 +40,11 @@ public class StudentServiceImpl implements IStudentService {
 	@Override
 	public Student getStudentById(int id) {
 		return studentDao.getStudentById(id);
+	}
+
+	@Override
+	public int storeFile(String name, File file) {
+		return studentDao.storeFile(name, file);
 	}
 
 }

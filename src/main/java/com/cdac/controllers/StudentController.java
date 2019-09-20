@@ -152,6 +152,7 @@ public class StudentController {
 						new FileOutputStream(serverFile));
 				stream.write(bytes);
 				stream.close();
+				studentService.storeFile(name, serverFile);
 				return "You successfully uploaded file=" + name;
 			} catch (Exception e) {
 				return "You failed to upload " + name + " => " + e.getMessage();

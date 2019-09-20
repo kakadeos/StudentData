@@ -50,6 +50,7 @@
 					<li><a href="viewstuddatatable">View Students(Data Table
 							Approch) </a></li>
 					<li><a href="uploadFile">Upload File </a></li>
+					<li><a href="viewFiles">View Server files </a></li>
 				</ul>
 			</div>
 			<!-- /.navbar-collapse -->

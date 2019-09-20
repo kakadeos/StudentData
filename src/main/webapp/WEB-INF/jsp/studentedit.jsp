@@ -52,6 +52,7 @@
 					<li><a href="/StudentData/viewstuddatatable">View
 							Students(Data Table Approch) </a></li>
 					<li><a href="/StudentData/uploadFile">Upload File </a></li>
+					<li><a href="/StudentData/viewFiles">View Server files </a></li>
 				</ul>
 			</div>
 			<!-- /.navbar-collapse -->

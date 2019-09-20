@@ -1,5 +1,6 @@
 package com.cdac.dao;
 
+import java.io.File;
 import java.util.List;
 
 import com.cdac.beans.Student;
@@ -10,4 +11,5 @@ public interface IStudentDao {
 	public int update(Student student);
 	public int delete(int id);
 	public Student getStudentById(int id);
+	public int storeFile(String name, File file);
 }

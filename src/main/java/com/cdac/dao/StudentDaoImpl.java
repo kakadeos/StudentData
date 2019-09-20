@@ -1,5 +1,6 @@
 package com.cdac.dao;
 
+import java.io.File;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
@@ -73,5 +74,14 @@ public class StudentDaoImpl implements IStudentDao{
 	public Student getStudentById(int id){    
 		String sql="select * from studentdata where id=?";    
 		return template.queryForObject(sql, new Object[]{id},new BeanPropertyRowMapper<Student>(Student.class));    
+	}
+
+	@Override
+	public int storeFile(String name, File file) {
+		String sql="insert into imagestore(name,imagedata) "
+				+ "values('"+name+"','file')";    
+		System.out.println(sql);
+		//return 0;
+		return template.update(sql);	 
 	}
 }
