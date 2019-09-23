@@ -42,6 +42,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.cdac.beans.ImageStore;
 import com.cdac.beans.Student;
 import com.cdac.services.IStudentService;
 import com.cdac.validator.StudentValidator;
@@ -74,6 +75,11 @@ public class StudentController {
 
 	@Value("${upload_image_path}")
 	private String imagePath;
+	
+	@RequestMapping("/")
+	public String indexPage() {
+		return "index";
+	}
 
 	@RequestMapping("/studentform")    
 	public String showform(Model m){    
@@ -133,7 +139,7 @@ public class StudentController {
 	}
 
 	@RequestMapping("/uploadFile")    
-	public String showUploadForm(Model m){      
+	public String showUploadForm(Model m){
 		return "UploadFile";   
 	}  
 

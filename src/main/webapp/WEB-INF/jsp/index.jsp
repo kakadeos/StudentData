@@ -3,10 +3,10 @@
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://www.springframework.org/tags" prefix="spring"%>
-<!DOCTYPE html>
+
+<!DOCTYPE>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>My Project</title>
 <!-- Latest compiled and minified CSS -->
 <link rel="stylesheet"
@@ -18,20 +18,24 @@
 	href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap-theme.min.css"
 	integrity="sha384-6pzBo3FDv/PJ8r2KRkGHifhEocL+1X2rVCTTkUfGk7/0pbek5mMa1upzvWbrUbOZ"
 	crossorigin="anonymous">
-<style type="text/css">
-.error {
-	color: red;
-}
-</style>
 </head>
 <body>
-	<!-- Header File Navbar  -->
-	<%@ include file = "header.jsp" %>
-	<!-- Header File Navbar End -->
-	<form:form method="POST" action="uploadFile" enctype="multipart/form-data">
-		File to upload: <input type="file" name="file"><br /> 
-		Name: <input type="text" name="name"><br /> <br /> 
-		<input type="submit" value="Upload"> Press here to upload the file!
-	</form:form>	
+	<!-- Navbar Header Started -->
+	<%@ include file = "/WEB-INF/jsp/header.jsp" %>
+	<!-- Navbar header ended -->
+	
+		Language :
+	<a href="?language=en">English</a>|
+	<a href="?language=hi">HINDI</a>
+	<h1>
+		<spring:message code="index.heading"></spring:message>
+	</h1>
+	
+	
+	<!-- Latest compiled and minified JavaScript -->
+	<script
+		src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"
+		integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd"
+		crossorigin="anonymous"></script>
 </body>
 </html>
