@@ -67,7 +67,7 @@
 
 
 	<h2>
-		<spring:message code="EditStudent.headingPageTop" text="Edit Student"/>
+		<spring:message code="EditStudent.headingPageTop" text="Edit Student" />
 	</h2>
 	<form:form method="POST" action="/StudentData/editsave">
 		<table>
@@ -91,10 +91,9 @@
 				</div>
 			</tr>
 			<tr>
-				<td><spring:message code="EditStudent.gender"
-						text="Gender" /></td>
-				<td><spring:message code="EditStudent.male" var="male" />
-					<form:radiobutton path="Gender" value="Male" />${male} <spring:message
+				<td><spring:message code="EditStudent.gender" text="Gender" /></td>
+				<td><spring:message code="EditStudent.male" var="male" /> <form:radiobutton
+						path="Gender" value="Male" />${male} <spring:message
 						code="EditStudent.female" var="female" /> <form:radiobutton
 						path="Gender" value="Female" />${female}</td>
 				<td><form:errors path="gender" cssClass="error" /></td>
@@ -102,22 +101,18 @@
 			<tr>
 				<td><spring:message code="EditStudent.city" text="City" /></td>
 				<td><form:select path="city">
-						<spring:message code="EditStudent.city.gaziabad"
-							var="Gaziabad" />
+						<spring:message code="EditStudent.city.gaziabad" var="Gaziabad" />
 						<form:option value="Gaziabad" label="${Gaziabad}" />
-						<spring:message code="EditStudent.city.modinagar"
-							var="Modinagar" />
+						<spring:message code="EditStudent.city.modinagar" var="Modinagar" />
 						<form:option value="Modinagar" label="${Modinagar}" />
 						<spring:message code="EditStudent.city.meerut" var="Meerut" />
 						<form:option value="Meerut" label="${Meerut}" />
-						<spring:message code="EditStudent.city.amritsar"
-							var="Amritsar" />
+						<spring:message code="EditStudent.city.amritsar" var="Amritsar" />
 						<form:option value="Amritsar" label="${Amritsar}" />
 					</form:select></td>
 			</tr>
 			<tr>
-				<td><spring:message code="EditStudent.dob"
-						text="Date of Birth" /></td>
+				<td><spring:message code="EditStudent.dob" text="Date of Birth" /></td>
 				<td><form:input path="dob" type='date' /></td>
 				<td><form:errors path="dob" cssClass="error" /></td>
 			</tr>
@@ -127,30 +122,22 @@
 				<td><form:checkbox path="smssubscribe" />
 			</tr>
 			<tr>
-				<td><spring:message code="EditStudent.sports"
-						text="Sports" /></td>
-				<td><spring:message code="EditStudent.cricket" var="Cricket" /> 
-						<form:checkbox path="sports" value="Cricket" />${Cricket}
-					<spring:message code="EditStudent.football" var="Football" />
-					<form:checkbox path="sports" value="Football" /> ${Football} 
-					<spring:message code="EditStudent.hockey" var="Hockey" /> 
-					<form:checkbox path="sports" value="Hockey" />${Hockey}
-					</td>
+				<td><spring:message code="EditStudent.sports" text="Sports" /></td>
+				<td><spring:message code="EditStudent.cricket" var="Cricket" />
+					<form:checkbox path="sports" value="Cricket" />${Cricket} <spring:message
+						code="EditStudent.football" var="Football" /> <form:checkbox
+						path="sports" value="Football" /> ${Football} <spring:message
+						code="EditStudent.hockey" var="Hockey" /> <form:checkbox
+						path="sports" value="Hockey" />${Hockey}</td>
 			</tr>
 			<tr>
 				<td></td>
-				<td><spring:message code="EditStudent.save" var="save" />
-					<input class="btn btn-primary" type="submit" value="${save }" /></td>
+				<td><spring:message code="EditStudent.save" var="save" /> <input
+					class="btn btn-primary" type="submit" value="${save }" /></td>
 			</tr>
 		</table>
 	</form:form>
 
-
-
-	<!-- Form Division -->
-	<script
-		src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"
-		integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd"
-		crossorigin="anonymous"></script>
-</body>
-</html>
+	<!-- Footer File -->
+	<%@ include file="footer.jsp"%>
+	<!-- Footer File End -->
