@@ -84,4 +84,10 @@ public class StudentDaoImpl implements IStudentDao{
 		//return 0;
 		return template.update(sql);	 
 	}
+
+	@Override
+	public Object retriveImageFromDB() {
+		String sql = "select * from imagestore where id=1";
+		return template.queryForObject(sql, new BeanPropertyRowMapper<Object>(Object.class));
+	}
 }

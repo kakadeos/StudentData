@@ -61,18 +61,9 @@
 		<tr>
 			<th>File Name</th>
 			<th>File Preview</th>
-			<th>Download</th>
+			<!-- <th>Download</th> -->
 		</tr>
-		<c:forEach var="fileName" items="${fileList}">
-			<tr>
-				<c:out value="${fileName}"/>
-				<td>${fileName}</td>
-				<td><img alt="No Image found"
-					src="<spring:url value='/upload_images/${fileName}'/>" height="100"
-					width="100"></td>
-				<td><a href='downloadFile/${fileName}' download>Click Here</a></td>
-			</tr>
-		</c:forEach>
+
 	</table>
 
 </body>

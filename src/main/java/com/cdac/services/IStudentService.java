@@ -12,4 +12,5 @@ public interface IStudentService {
 	public int delete(int id);
 	public Student getStudentById(int id);
 	public int storeFile(String name, File file);
+	public Object retriveImageFromDB();
 }

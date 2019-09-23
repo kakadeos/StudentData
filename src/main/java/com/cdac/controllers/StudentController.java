@@ -11,6 +11,9 @@ import java.io.OutputStream;
 import java.net.URL;
 import java.net.URLConnection;
 import java.nio.charset.Charset;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Locale;
@@ -23,6 +26,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.MessageSource;
 import org.springframework.core.io.InputStreamResource;
+import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.util.FileCopyUtils;
@@ -164,6 +168,7 @@ public class StudentController {
 	}
 
 
+
 	@RequestMapping(value = "/viewFiles")
 	public String viewFiles(Model model, HttpServletRequest request) {
 		File uploadLocationDir = new File(filePath);
@@ -172,6 +177,24 @@ public class StudentController {
 		model.addAttribute("fileList", files);
 		model.addAttribute("filePath", downloadDirectory);
 		return "viewFiles";
+	}
+
+
+
+	@ResponseBody
+	@RequestMapping(value = "/downloadFile/{fileName:.+}", produces = {MediaType.IMAGE_JPEG_VALUE, MediaType.APPLICATION_PDF_VALUE, MediaType.IMAGE_PNG_VALUE})
+	public byte[] downloadFile(@PathVariable("fileName") String fileName) throws IOException {
+		System.out.println(fileName);
+		File file = new File(filePath+fileName);
+		InputStream in = new FileInputStream(file);
+		return IOUtils.toByteArray(in);
+
+	}
+
+	@RequestMapping(value="/viewImageFromDB")
+	public String viewImageFromDB() {
+		studentService.retriveImageFromDB();
+		return "viewImageFromDB";
 	}
 
 }

@@ -47,4 +47,10 @@ public class StudentServiceImpl implements IStudentService {
 		return studentDao.storeFile(name, file);
 	}
 
+	@Override
+	public Object retriveImageFromDB() {
+		return studentDao.retriveImageFromDB();
+		
+	}
+
 }
