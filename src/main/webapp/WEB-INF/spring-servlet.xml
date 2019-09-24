@@ -43,6 +43,10 @@
 	<bean id="dao" class="com.cdac.dao.StudentDaoImpl">
 		<property name="template" ref="jt"></property>
 	</bean>
+	
+	<bean id="fileDao" class="com.cdac.dao.FileDaoImpl">
+		<property name="template" ref="jt"></property>
+	</bean>
 
 	<bean id="messageSource"
 		class="org.springframework.context.support.ResourceBundleMessageSource">

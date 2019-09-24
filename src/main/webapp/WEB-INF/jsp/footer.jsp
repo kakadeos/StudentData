@@ -1,7 +1,8 @@
+<%@ taglib uri="http://www.springframework.org/tags" prefix="spring"%>
 
 <div class="container-fluid">
 	<div class="navbar footer">
-		<h7>&copy; All rights reseved by CDAC</h7>
+		<h7>&copy;<spring:message code="footer.text1" /></h7>
 	</div>
 </div>
 <!-- Latest compiled and minified JavaScript -->

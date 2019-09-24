@@ -60,12 +60,6 @@
 		<!-- /.container-fluid -->
 	</nav>
 	<!-- Navbar Ended -->
-
-	Language :
-	<a href="?language=en">English</a>|
-	<a href="?language=hi">HINDI</a>
-
-
 	<h2>
 		<spring:message code="EditStudent.headingPageTop" text="Edit Student" />
 	</h2>

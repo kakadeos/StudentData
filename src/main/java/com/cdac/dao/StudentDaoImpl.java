@@ -81,7 +81,6 @@ public class StudentDaoImpl implements IStudentDao{
 		String sql="insert into imagestore(name,imagedata) "
 				+ "values('"+name+"','file')";    
 		System.out.println(sql);
-		//return 0;
 		return template.update(sql);	 
 	}
 

@@ -1,12 +1,5 @@
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@taglib prefix="spring" uri="http://www.springframework.org/tags"%>
-<%@ page session="false"%>
-<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml"
-	xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="utf-8" />
-<title>Spring Boot + JPA + Datatables</title>
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <script
@@ -23,20 +16,20 @@
 
 <body>
 	<!-- Header File Navbar  -->
-	<%@ include file = "header.jsp" %>
+	<%@ include file="header.jsp"%>
 	<!-- Header File Navbar End -->
-	<h1>Student Table</h1>
+	<h1><spring:message code="dataTable.studentTable" /></h1>
 	<table id="StudentTable" class="display">
 		<!-- Header Table -->
 		<thead>
 			<tr>
-				<th>Id</th>
-				<th>Name</th>
-				<th>Standard</th>
-				<th>Gender</th>
-				<th>City</th>
-				<th>Date of Birth</th>
-				<th>SMS Service</th>
+				<th><spring:message code="dataTable.id" /></th>
+				<th><spring:message code="dataTable.name" /></th>
+				<th><spring:message code="dataTable.standard" /></th>
+				<th><spring:message code="dataTable.gender" /></th>
+				<th><spring:message code="dataTable.city" /></th>
+				<th><spring:message code="dataTable.dob" /></th>
+				<th><spring:message code="dataTable.smssubscribe" /></th>
 			</tr>
 		</thead>
 		<!-- BODY -->
@@ -45,13 +38,13 @@
 		<!-- Footer Table -->
 		<tfoot>
 			<tr>
-				<th>Id</th>
-				<th>Name</th>
-				<th>Standard</th>
-				<th>Gender</th>
-				<th>City</th>
-				<th>Date of Birth</th>
-				<th>SMS Service</th>
+				<th><spring:message code="dataTable.id" /></th>
+				<th><spring:message code="dataTable.name" /></th>
+				<th><spring:message code="dataTable.standard" /></th>
+				<th><spring:message code="dataTable.gender" /></th>
+				<th><spring:message code="dataTable.city" /></th>
+				<th><spring:message code="dataTable.dob" /></th>
+				<th><spring:message code="dataTable.smssubscribe" /></th>
 			</tr>
 		</tfoot>
 	</table>
@@ -79,5 +72,7 @@
 			});
 		});
 	</script>
-</body>
-</html>
+
+	<!-- Footer File -->
+	<%@ include file="footer.jsp"%>
+	<!-- Footer File End -->

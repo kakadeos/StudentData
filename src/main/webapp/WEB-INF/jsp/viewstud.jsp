@@ -1,14 +1,6 @@
-
 <!-- Header File Navbar  -->
 <%@ include file="header.jsp"%>
 <!-- Header File Navbar End -->
-
-Language :
-<a href="?language=en">English</a>
-|
-<a href="?language=hi">HINDI</a>
-
-
 <h2>
 	<spring:message code="viewPage.heading" text="Student List" />
 </h2>

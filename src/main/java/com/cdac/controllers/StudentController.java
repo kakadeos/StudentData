@@ -42,7 +42,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
-import com.cdac.beans.ImageStore;
 import com.cdac.beans.Student;
 import com.cdac.services.IStudentService;
 import com.cdac.validator.StudentValidator;
@@ -196,11 +195,6 @@ public class StudentController {
 		return IOUtils.toByteArray(in);
 
 	}
-
-	@RequestMapping(value="/viewImageFromDB")
-	public String viewImageFromDB() {
-		studentService.retriveImageFromDB();
-		return "viewImageFromDB";
-	}
+	
 
 }
