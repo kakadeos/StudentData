@@ -5,12 +5,11 @@ import java.sql.SQLException;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
-import org.springframework.stereotype.Repository;
 
 import com.cdac.beans.FileUploader;
-import com.cdac.beans.Student;
 
 public class FileDaoImpl implements IFileDao{
 
@@ -20,7 +19,6 @@ public class FileDaoImpl implements IFileDao{
 	public void setTemplate(JdbcTemplate template) {    
 		this.template = template;    
 	}
-	
 	
 	@Override
 	public int fileUpload(FileUploader fileUploader) {
@@ -39,10 +37,15 @@ public class FileDaoImpl implements IFileDao{
 				fileUploader.setFileName(rs.getString(2));
 				fileUploader.setFileContentType(rs.getString(3));
 				fileUploader.setFileData(rs.getBytes(4));
-				System.out.println(fileUploader);
 				return fileUploader;    
 			}    
 		});    
+	}
+	
+	@Override
+	public FileUploader getDownloadableFile(int id) {
+		String sql="select * from filestore where id=?";    
+		return template.queryForObject(sql, new Object[]{id},new BeanPropertyRowMapper<FileUploader>(FileUploader.class));  
 	}
 
 }

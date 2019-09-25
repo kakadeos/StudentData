@@ -1,35 +1,28 @@
 package com.cdac.controllers;
 
-import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
-import java.io.OutputStream;
-import java.net.URL;
-import java.net.URLConnection;
-import java.nio.charset.Charset;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Locale;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import org.apache.commons.io.IOUtils;
+import org.codehaus.jackson.JsonGenerationException;
+import org.codehaus.jackson.map.JsonMappingException;
+import org.codehaus.jackson.map.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.MessageSource;
-import org.springframework.core.io.InputStreamResource;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.util.FileCopyUtils;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.WebDataBinder;
@@ -45,11 +38,6 @@ import org.springframework.web.multipart.MultipartFile;
 import com.cdac.beans.Student;
 import com.cdac.services.IStudentService;
 import com.cdac.validator.StudentValidator;
-
-import org.apache.commons.io.IOUtils;
-import org.codehaus.jackson.JsonGenerationException;
-import org.codehaus.jackson.map.JsonMappingException;
-import org.codehaus.jackson.map.ObjectMapper;
 @Controller
 public class StudentController {
 
@@ -74,7 +62,7 @@ public class StudentController {
 
 	@Value("${upload_image_path}")
 	private String imagePath;
-	
+
 	@RequestMapping("/")
 	public String indexPage() {
 		return "index";
@@ -130,7 +118,6 @@ public class StudentController {
 	}
 
 	@RequestMapping("/viewstuddatatable")
-	//	@ResponseBody
 	public String viewStudentDataTable(Model model, Locale locale) throws JsonGenerationException, JsonMappingException, IOException{
 		ObjectMapper mapper = new ObjectMapper();
 		model.addAttribute("studentList", mapper.writeValueAsString(studentService.getStudents()));
@@ -172,8 +159,6 @@ public class StudentController {
 		}
 	}
 
-
-
 	@RequestMapping(value = "/viewFiles")
 	public String viewFiles(Model model, HttpServletRequest request) {
 		File uploadLocationDir = new File(filePath);
@@ -195,6 +180,6 @@ public class StudentController {
 		return IOUtils.toByteArray(in);
 
 	}
-	
+
 
 }

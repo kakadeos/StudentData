@@ -56,8 +56,8 @@
 				<li><a href="viewstuddatatable"> <spring:message code="header.viewDataTable" /></a></li>
 				<li><a href="uploadFile"> <spring:message code="header.uploadFile" /></a></li>
 				<li><a href="viewFiles"> <spring:message code="header.viewServerFile" /></a></li>
-				<li><a href="fileStore/uploadFileToDB"> <spring:message code="header.UploadToDB" /></a></li>
-				<li><a href="fileStore/viewDatabaseFiles"> <spring:message code="header.viewDBFiles" /></a></li>
+				<li><a href="uploadFileToDB"> <spring:message code="header.UploadToDB" /></a></li>
+				<li><a href="viewDatabaseFiles"> <spring:message code="header.viewDBFiles" /></a></li>
 				
 			</ul>
 			<ul class="nav navbar-nav navbar-right">

@@ -24,5 +24,10 @@ public class FileStoreServiceImpl implements IFileStoreService {
 	public List<FileUploader> viewFileList() {
 		return iFileDao.viewFileList();
 	}
+
+	@Override
+	public FileUploader getDownloadableFile(int id) {
+		return iFileDao.getDownloadableFile(id);
+	}
 	
 }

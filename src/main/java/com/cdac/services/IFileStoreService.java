@@ -7,4 +7,5 @@ import com.cdac.beans.FileUploader;
 public interface IFileStoreService {
 	public int fileUpload(FileUploader fileUploader);
 	public List<FileUploader> viewFileList();
+	public FileUploader getDownloadableFile(int id);
 }
