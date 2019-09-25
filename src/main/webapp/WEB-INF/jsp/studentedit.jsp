@@ -28,7 +28,7 @@
 </head>
 <body>
 	<!-- Navbar Started -->
-	<nav class="navbar navbar-default">
+	<nav class="navbar navbar-inverse">
 		<div class="container-fluid">
 			<!-- Brand and toggle get grouped for better mobile display -->
 			<div class="navbar-header">
@@ -53,6 +53,11 @@
 							Students(Data Table Approch) </a></li>
 					<li><a href="/StudentData/uploadFile">Upload File </a></li>
 					<li><a href="/StudentData/viewFiles">View Server files </a></li>
+					<li><a href="/StudentData/uploadFileToDB"> <spring:message
+								code="header.UploadToDB" /></a></li>
+					<li><a href="/StudentData/viewDatabaseFiles"> <spring:message
+								code="header.viewDBFiles" /></a></li>
+
 				</ul>
 			</div>
 			<!-- /.navbar-collapse -->
@@ -60,78 +65,84 @@
 		<!-- /.container-fluid -->
 	</nav>
 	<!-- Navbar Ended -->
-	<h2>
-		<spring:message code="EditStudent.headingPageTop" text="Edit Student" />
-	</h2>
-	<form:form method="POST" action="/StudentData/editsave">
-		<table>
-			<tr>
-				<td></td>
-				<td><form:hidden path="id" /></td>
-			</tr>
-			<tr>
-				<div class="input-group">
-					<td><spring:message code="EditStudent.name" text="Name" /></td>
-					<td><form:input class="form-control" path="name" /></td>
-					<td><form:errors path="name" cssClass="error" /></td>
-				</div>
-			</tr>
-			<tr>
-				<div class="input-group">
-					<td><spring:message code="EditStudent.standard"
-							text="Standard" /></td>
-					<td><form:input class="form-control" path="standard" /></td>
-					<td><form:errors path="standard" cssClass="error" /></td>
-				</div>
-			</tr>
-			<tr>
-				<td><spring:message code="EditStudent.gender" text="Gender" /></td>
-				<td><spring:message code="EditStudent.male" var="male" /> <form:radiobutton
-						path="Gender" value="Male" />${male} <spring:message
-						code="EditStudent.female" var="female" /> <form:radiobutton
-						path="Gender" value="Female" />${female}</td>
-				<td><form:errors path="gender" cssClass="error" /></td>
-			</tr>
-			<tr>
-				<td><spring:message code="EditStudent.city" text="City" /></td>
-				<td><form:select path="city">
-						<spring:message code="EditStudent.city.gaziabad" var="Gaziabad" />
-						<form:option value="Gaziabad" label="${Gaziabad}" />
-						<spring:message code="EditStudent.city.modinagar" var="Modinagar" />
-						<form:option value="Modinagar" label="${Modinagar}" />
-						<spring:message code="EditStudent.city.meerut" var="Meerut" />
-						<form:option value="Meerut" label="${Meerut}" />
-						<spring:message code="EditStudent.city.amritsar" var="Amritsar" />
-						<form:option value="Amritsar" label="${Amritsar}" />
-					</form:select></td>
-			</tr>
-			<tr>
-				<td><spring:message code="EditStudent.dob" text="Date of Birth" /></td>
-				<td><form:input path="dob" type='date' /></td>
-				<td><form:errors path="dob" cssClass="error" /></td>
-			</tr>
-			<tr>
-				<td><spring:message code="EditStudent.smssubscribe"
-						text="SMS Subscription" /></td>
-				<td><form:checkbox path="smssubscribe" />
-			</tr>
-			<tr>
-				<td><spring:message code="EditStudent.sports" text="Sports" /></td>
-				<td><spring:message code="EditStudent.cricket" var="Cricket" />
-					<form:checkbox path="sports" value="Cricket" />${Cricket} <spring:message
-						code="EditStudent.football" var="Football" /> <form:checkbox
-						path="sports" value="Football" /> ${Football} <spring:message
-						code="EditStudent.hockey" var="Hockey" /> <form:checkbox
-						path="sports" value="Hockey" />${Hockey}</td>
-			</tr>
-			<tr>
-				<td></td>
-				<td><spring:message code="EditStudent.save" var="save" /> <input
-					class="btn btn-primary" type="submit" value="${save }" /></td>
-			</tr>
-		</table>
-	</form:form>
+	<div class='container-fluid'>
 
-	<!-- Footer File -->
-	<%@ include file="footer.jsp"%>
-	<!-- Footer File End -->
+		<div class="row">
+			<div class="col-md-4"></div>
+			<div class="col-md-4">
+				<h2>
+					<spring:message code="EditStudent.headingPageTop"
+						text="Edit Student" />
+				</h2>
+				<form:form method="POST" action="/StudentData/editsave">
+					<form:hidden path="id" />
+
+					<div class="input-group">
+						<spring:message code="EditStudent.name" text="Name" />
+						<form:input class="form-control" path="name" />
+						<form:errors path="name" cssClass="error" />
+					</div>
+
+					<div class="input-group">
+						<spring:message code="EditStudent.standard" text="Standard" />
+						<form:input class="form-control" path="standard" />
+						<form:errors path="standard" cssClass="error" />
+					</div>
+
+					<div class="input-group">
+						<spring:message code="EditStudent.gender" text="Gender" />
+						<spring:message code="EditStudent.male" var="male" />
+						<form:radiobutton path="Gender" value="Male" />${male}
+						<spring:message code="EditStudent.female" var="female" />
+						<form:radiobutton path="Gender" value="Female" />${female}
+						<form:errors path="gender" cssClass="error" />
+					</div>
+
+					<div class="input-group">
+						<spring:message code="EditStudent.city" text="City" />
+						<form:select path="city">
+							<spring:message code="EditStudent.city.gaziabad" var="Gaziabad" />
+							<form:option value="Gaziabad" label="${Gaziabad}" />
+							<spring:message code="EditStudent.city.modinagar" var="Modinagar" />
+							<form:option value="Modinagar" label="${Modinagar}" />
+							<spring:message code="EditStudent.city.meerut" var="Meerut" />
+							<form:option value="Meerut" label="${Meerut}" />
+							<spring:message code="EditStudent.city.amritsar" var="Amritsar" />
+							<form:option value="Amritsar" label="${Amritsar}" />
+						</form:select>
+					</div>
+
+					<div class="input-group">
+						<spring:message code="EditStudent.dob" text="Date of Birth" />
+						<form:input path="dob" type='date' />
+						<form:errors path="dob" cssClass="error" />
+					</div>
+
+					<div class="input-group">
+						<spring:message code="EditStudent.smssubscribe"
+							text="SMS Subscription" />
+						<form:checkbox path="smssubscribe" />
+					</div>
+
+					<div class="input-group">
+						<spring:message code="EditStudent.sports" text="Sports" />
+						<spring:message code="EditStudent.cricket" var="Cricket" />
+						<form:checkbox path="sports" value="Cricket" />${Cricket}
+						<spring:message code="EditStudent.football" var="Football" />
+						<form:checkbox path="sports" value="Football" />
+						${Football}
+						<spring:message code="EditStudent.hockey" var="Hockey" />
+						<form:checkbox path="sports" value="Hockey" />${Hockey}
+					</div>
+					<spring:message code="EditStudent.save" var="save" />
+					<input class="btn btn-primary" type="submit" value="${save }" />
+
+				</form:form>
+
+			</div>
+			<div class="col-md-4"></div>
+		</div>
+	</div>
+
+</body>
+</html>

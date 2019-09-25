@@ -34,6 +34,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.cdac.beans.Student;
 import com.cdac.services.IStudentService;
@@ -131,7 +132,7 @@ public class StudentController {
 
 	@RequestMapping(value = "/uploadFile", method = RequestMethod.POST)
 	public @ResponseBody
-	String uploadFileHandler(HttpServletRequest servletRequest,@RequestParam("name") String name,
+	ModelAndView uploadFileHandler(HttpServletRequest servletRequest,@RequestParam("name") String name,
 			@RequestParam("file") MultipartFile file) {
 
 		if (!file.isEmpty()) {
@@ -142,20 +143,18 @@ public class StudentController {
 				if (!dir.exists())
 					dir.mkdirs();
 				System.out.println(dir);
-				File serverFile = new File(dir.getAbsolutePath()
-						+ File.separator + name);
+				File serverFile = new File(dir.getAbsolutePath() + File.separator + name);
 				BufferedOutputStream stream = new BufferedOutputStream(
 						new FileOutputStream(serverFile));
 				stream.write(bytes);
 				stream.close();
 				studentService.storeFile(name, serverFile);
-				return "You successfully uploaded file=" + name;
+				return new ModelAndView("UploadFile","message","File successfully uploaded!");	
 			} catch (Exception e) {
-				return "You failed to upload " + name + " => " + e.getMessage();
+				return new ModelAndView("UploadFile","message","Oops!Error occured");
 			}
 		} else {
-			return "You failed to upload " + name
-					+ " because the file was empty.";
+			return new ModelAndView("UploadFile","message","Oops!Failed to upload");
 		}
 	}
 
