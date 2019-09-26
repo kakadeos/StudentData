@@ -1,6 +1,7 @@
 <!-- Header File Navbar  -->
 <%@ include file="header.jsp"%>
 <!-- Header File Navbar End -->
+
 <h2>
 	<spring:message code="viewPage.heading" text="Student List" />
 </h2>
@@ -39,6 +40,7 @@
 	</c:forEach>
 </table>
 <br />
+
 <!-- Footer File -->
 <%@ include file="footer.jsp"%>
 <!-- Footer File End -->

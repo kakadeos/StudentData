@@ -30,6 +30,10 @@
   color: white;
   text-align: center;
 }
+
+.error {
+	color: red;
+}
 </style>
 
 <body>

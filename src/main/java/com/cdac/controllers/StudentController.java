@@ -76,8 +76,16 @@ public class StudentController {
 	}  
 
 
+	@RequestMapping(value="/save",method = RequestMethod.GET)    
+	public String saveStudentDB(Model m){
+		m.addAttribute("student", new Student());
+		return "studentform";
+	}
+
+
+
 	@RequestMapping(value="/save",method = RequestMethod.POST)    
-	public String save(@ModelAttribute("student")@Validated Student student, BindingResult result){
+	public String save(@ModelAttribute("student")@Validated Student student, BindingResult result , Locale locale){
 		if (result.hasErrors()) {
 			return "studentform";
 		} else {
@@ -103,14 +111,9 @@ public class StudentController {
 
 	@RequestMapping(value="/editsave",method = RequestMethod.POST)    
 	public String editsave(@ModelAttribute("student")@Validated Student student, BindingResult result){
-		if (result.hasErrors()) {
-			return "studentedit";
-		} else {
-			studentService.update(student);    
-			return "redirect:/viewstud";
-		}
-
-	}    
+		studentService.update(student);    
+		return "redirect:/viewstud";
+	}  
 
 	@RequestMapping(value="/deletestud/{id}",method = RequestMethod.GET)    
 	public String delete(@PathVariable int id){    

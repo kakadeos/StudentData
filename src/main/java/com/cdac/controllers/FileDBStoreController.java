@@ -60,7 +60,7 @@ public class FileDBStoreController {
 	public void downloadFile(@PathVariable("id")int id, HttpServletResponse response) throws IOException {
 		FileUploader fileUploader = iFileStoreService.getDownloadableFile(id);
 		System.out.println("***********************************");
-		System.out.println(fileUploader);
+		System.out.println(new String(fileUploader.getFileData()));
 		response.setHeader("Content-Encoding", "UTF-8");
 		response.setContentType("application/octet-stream");
 		response.setContentType(fileUploader.getFileContentType());
@@ -70,17 +70,6 @@ public class FileDBStoreController {
 		byte[] fileContent = fileUploader.getFileData();
 		response.getOutputStream().write(fileContent); 
 
-//		byte[] bytes = fileUploader.getFileData();
-//		response.setContentType(fileUploader.getFileContentType());
-//		response.setHeader("Content-disposition", "attachment;filename="+fileUploader.getFileName());
-//		OutputStream out = response.getOutputStream();
-//		out.write(bytes);
-//		out.flush();
-//		out.close();
-		
-//		 FileOutputStream fout=new FileOutputStream("/home/cdac-kharghar3/OmkarKakade/SpringLearning/StudentData/image1.jpeg");    
-//         fout.write(fileUploader.getFileData());    
-//         fout.close();    
 	}
 
 }

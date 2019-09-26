@@ -18,36 +18,42 @@
 	<!-- Header File Navbar  -->
 	<%@ include file="header.jsp"%>
 	<!-- Header File Navbar End -->
-	<h1><spring:message code="dataTable.studentTable" /></h1>
-	<table id="StudentTable" class="display">
-		<!-- Header Table -->
-		<thead>
-			<tr>
-				<th><spring:message code="dataTable.id" /></th>
-				<th><spring:message code="dataTable.name" /></th>
-				<th><spring:message code="dataTable.standard" /></th>
-				<th><spring:message code="dataTable.gender" /></th>
-				<th><spring:message code="dataTable.city" /></th>
-				<th><spring:message code="dataTable.dob" /></th>
-				<th><spring:message code="dataTable.smssubscribe" /></th>
-			</tr>
-		</thead>
-		<!-- BODY -->
+	<div class="row">
+		
+			<h1>
+				<spring:message code="dataTable.studentTable" />
+			</h1>
+			<table id="StudentTable" class="display">
+				<!-- Header Table -->
+				<thead>
+					<tr>
+						<th><spring:message code="dataTable.id" /></th>
+						<th><spring:message code="dataTable.name" /></th>
+						<th><spring:message code="dataTable.standard" /></th>
+						<th><spring:message code="dataTable.gender" /></th>
+						<th><spring:message code="dataTable.city" /></th>
+						<th><spring:message code="dataTable.dob" /></th>
+						<th><spring:message code="dataTable.smssubscribe" /></th>
+					</tr>
+				</thead>
+				<!-- BODY -->
 
 
-		<!-- Footer Table -->
-		<tfoot>
-			<tr>
-				<th><spring:message code="dataTable.id" /></th>
-				<th><spring:message code="dataTable.name" /></th>
-				<th><spring:message code="dataTable.standard" /></th>
-				<th><spring:message code="dataTable.gender" /></th>
-				<th><spring:message code="dataTable.city" /></th>
-				<th><spring:message code="dataTable.dob" /></th>
-				<th><spring:message code="dataTable.smssubscribe" /></th>
-			</tr>
-		</tfoot>
-	</table>
+				<!-- Footer Table -->
+				<tfoot>
+					<tr>
+						<th><spring:message code="dataTable.id" /></th>
+						<th><spring:message code="dataTable.name" /></th>
+						<th><spring:message code="dataTable.standard" /></th>
+						<th><spring:message code="dataTable.gender" /></th>
+						<th><spring:message code="dataTable.city" /></th>
+						<th><spring:message code="dataTable.dob" /></th>
+						<th><spring:message code="dataTable.smssubscribe" /></th>
+					</tr>
+				</tfoot>
+			</table>
+	</div>
+
 	<script type="text/javascript">
 		$(document).ready(function() {
 			var data = eval('${studentList}');
