@@ -5,7 +5,8 @@
 <%@ include file="header.jsp"%>
 <!-- Header File Navbar End -->
 <head>
-
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	
 <script type="text/javascript">
 $(function() {
   $('button[type=submit]').click(function(e) {
