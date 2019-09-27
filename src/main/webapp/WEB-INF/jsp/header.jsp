@@ -18,6 +18,8 @@
 	href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap-theme.min.css"
 	integrity="sha384-6pzBo3FDv/PJ8r2KRkGHifhEocL+1X2rVCTTkUfGk7/0pbek5mMa1upzvWbrUbOZ"
 	crossorigin="anonymous">
+	  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	
 </head>
 
 <style>
@@ -62,7 +64,7 @@
 				<li><a href="viewFiles"> <spring:message code="header.viewServerFile" /></a></li>
 				<li><a href="uploadFileToDB"> <spring:message code="header.UploadToDB" /></a></li>
 				<li><a href="viewDatabaseFiles"> <spring:message code="header.viewDBFiles" /></a></li>
-				
+				<li><a href="uploadFileUsingAJAX"> <spring:message code="header.uploadFileAJAX" /></a></li>
 			</ul>
 			<ul class="nav navbar-nav navbar-right">
 				<li><a href="?language=en"><spring:message code="header.english" /></a></li>

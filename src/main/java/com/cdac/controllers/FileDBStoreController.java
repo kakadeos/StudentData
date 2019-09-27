@@ -69,7 +69,6 @@ public class FileDBStoreController {
 		//FileCopyUtils.copy(fileUploader.getFileData(), response.getOutputStream());
 		byte[] fileContent = fileUploader.getFileData();
 		response.getOutputStream().write(fileContent); 
-
 	}
 
 }
