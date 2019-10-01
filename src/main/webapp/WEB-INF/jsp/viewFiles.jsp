@@ -6,7 +6,7 @@
 <h2>
 	<spring:message code="viewFiles.heading" />
 </h2>
-<table border="2" width="100%" cellpadding="2">
+<table class ="table table-hover" border="2" width="100%" cellpadding="2">
 	<tr>
 		<th><spring:message code="viewFiles.fileName" /></th>
 		<th><spring:message code="viewFiles.filePreview" /></th>

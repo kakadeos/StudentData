@@ -1,13 +1,21 @@
 package com.cdac.dao;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataAccessException;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.PreparedStatementCallback;
 import org.springframework.jdbc.core.RowMapper;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.cdac.beans.FileUploader;
 
@@ -15,18 +23,11 @@ public class FileDaoImpl implements IFileDao{
 
 	@Autowired
 	JdbcTemplate template;    
-	
+
 	public void setTemplate(JdbcTemplate template) {    
 		this.template = template;    
 	}
-	
-	@Override
-	public int fileUpload(FileUploader fileUploader) {
-		System.out.println(fileUploader);
-		String sql="INSERT INTO filestore(filename, filecontenttype, filedata) VALUES ( '"+fileUploader.getFileName()+"','"+fileUploader.getFileContentType()+"','"+fileUploader.getFileData()+"')";    
-		System.out.println(sql);
-		return template.update(sql);
-	}
+
 
 	@Override
 	public List<FileUploader> viewFileList() {
@@ -41,11 +42,31 @@ public class FileDaoImpl implements IFileDao{
 			}    
 		});    
 	}
-	
+
 	@Override
 	public FileUploader getDownloadableFile(int id) {
 		String sql="select * from filestore where id=?";    
 		return template.queryForObject(sql, new Object[]{id},new BeanPropertyRowMapper<FileUploader>(FileUploader.class));  
+	}
+
+	@Override
+	public Boolean uploadFilePS(String fileName, String fileContentType, MultipartFile file) {
+		String query= "INSERT INTO filestore(filename, filecontenttype, filedata) VALUES (?,?,?)";  
+		return template.execute(query,new PreparedStatementCallback<Boolean>() {
+			public Boolean doInPreparedStatement(PreparedStatement ps)  
+					throws SQLException, DataAccessException {  
+				ps.setString(1, fileName);
+				ps.setString(2, fileContentType);
+				try {
+					ps.setBinaryStream(3, file.getInputStream(), file.getBytes().length);
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
+				return ps.execute();  
+			}
+		}				
+				);
+
 	}
 
 }

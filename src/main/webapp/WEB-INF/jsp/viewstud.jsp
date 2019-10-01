@@ -5,7 +5,7 @@
 <h2>
 	<spring:message code="viewPage.heading" text="Student List" />
 </h2>
-<table border="2" width="100%" cellpadding="2">
+<table class ="table-bordered" border="2" width="100%" cellpadding="2">
 	<tr>
 		<th><spring:message code="viewPage.id" text="ID" /></th>
 		<th><spring:message code="viewPage.name" text="Name" /></th>

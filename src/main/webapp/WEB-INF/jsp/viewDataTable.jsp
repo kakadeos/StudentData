@@ -18,7 +18,7 @@
 	<!-- Header File Navbar  -->
 	<%@ include file="header.jsp"%>
 	<!-- Header File Navbar End -->
-	<div class="row">
+	<div class="container">
 		
 			<h1>
 				<spring:message code="dataTable.studentTable" />

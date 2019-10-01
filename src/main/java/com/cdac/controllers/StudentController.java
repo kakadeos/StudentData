@@ -19,7 +19,6 @@ import org.codehaus.jackson.map.JsonMappingException;
 import org.codehaus.jackson.map.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.context.MessageSource;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -46,9 +45,6 @@ public class StudentController {
 	final String downloadDirectory = "/StudentData/src/main/webapp/images/";
 	@Autowired
 	HttpSession session;
-
-	@Autowired
-	private MessageSource messageSource;
 
 	@Autowired
 	private IStudentService studentService;
