@@ -86,6 +86,15 @@
 
 	<mvc:resources location="file:///home/cdac-kharghar3/OmkarKakade/SpringLearning/StudentData/src/main/webapp/images/" mapping="/upload_images/**"/>
 	
+	<bean id="csrfFilter" class="org.springframework.security.web.csrf.CsrfFilter">
+		<constructor-arg>
+			<bean class="org.springframework.security.web.csrf.HttpSessionCsrfTokenRepository"/>
+		</constructor-arg>
+	</bean>
+
+	<bean id="requestDataValueProcessor" class="org.springframework.security.web.servlet.support.csrf.CsrfRequestDataValueProcessor"/>
+	
+	
 	<mvc:annotation-driven />
 
 </beans>  

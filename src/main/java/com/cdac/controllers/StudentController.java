@@ -49,13 +49,12 @@ public class StudentController {
 	@Autowired
 	private IStudentService studentService;
 
-	@Autowired
-	private StudentValidator studentValidator;
-
-	@InitBinder
-	protected void initBinder(WebDataBinder binder) {
-		binder.addValidators(studentValidator);
-	}
+	/*
+	 * @Autowired private StudentValidator studentValidator;
+	 * 
+	 * @InitBinder protected void initBinder(WebDataBinder binder) {
+	 * binder.addValidators(studentValidator); }
+	 */
 
 	@Value("${upload_image_path}")
 	private String imagePath;
@@ -177,6 +176,19 @@ public class StudentController {
 		InputStream in = new FileInputStream(file);
 		return IOUtils.toByteArray(in);
 
+	}
+	
+	@RequestMapping(value = {"/studentHack"})
+	public String studentHack(Model m) {
+		m.addAttribute("student", new Student());
+		return "studenthack";
+	}
+	
+	@RequestMapping(value = {"/leStudentData"}, method = RequestMethod.POST)
+	public String saveStudentHack(@ModelAttribute("student")@Validated Student student, Model model) {
+		System.out.println(student);
+		model.addAttribute("student", student);
+		return "studenthack";
 	}
 
 

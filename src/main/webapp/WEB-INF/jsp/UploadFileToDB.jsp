@@ -7,7 +7,7 @@
 	<div class="col-md-4"></div>
 	<div class="col-md-4">
 		<h6 style="color: green">${filesuccess}</h6>
-		<form:form method="POST" action="uploadFileToDB"
+		<form:form method="POST" action="uploadFileToDB?${_csrf.parameterName}=${_csrf.token}"
 			enctype="multipart/form-data">
 			<spring:message code="uploadFileToDB.selectFile" />
 			<input type="file" name="file">

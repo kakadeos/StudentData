@@ -60,6 +60,7 @@
 				<li><a href="uploadFileToDB"> <spring:message code="header.UploadToDB" /></a></li>
 				<li><a href="viewDatabaseFiles"> <spring:message code="header.viewDBFiles" /></a></li>
 				<li><a href="uploadFileUsingAJAX"> <spring:message code="header.uploadFileAJAX" /></a></li>
+					<li><a href="studentHack">HackStudent</a></li>
 			</ul>
 			<ul class="nav navbar-nav navbar-right">
 				<li><a href="?language=en"><spring:message code="header.english" /></a></li>

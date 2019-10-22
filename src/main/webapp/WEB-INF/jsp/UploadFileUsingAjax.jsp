@@ -5,8 +5,9 @@
 <%@ include file="header.jsp"%>
 <!-- Header File Navbar End -->
 <head>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-	
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
 <script type="text/javascript">
 $(function() {
   $('button[type=submit]').click(function(e) {
@@ -16,12 +17,16 @@ $(function() {
     
     var form = document.forms[0];
     var formData = new FormData(form);
-    	
+    var token =  $('input[name="${_csrf.parameterName}"]').attr('value');
+	
     // Ajax call for file uploaling
     var ajaxReq = $.ajax({
       url : 'fileUpload',
       type : 'POST',
       data : formData,
+      headers: {
+          'X-CSRF-Token': token 
+     	},
       cache : false,
       contentType : false,
       processData : false,
@@ -72,6 +77,9 @@ $(function() {
 		<hr>
 		<!-- File Upload From -->
 		<form action="fileUpload" method="post" enctype="multipart/form-data">
+			<input type="hidden" name="${_csrf.parameterName}"
+				value="${_csrf.token}" />
+
 			<div class="form-group">
 				<label>Select File</label> <input class="form-control" type="file"
 					name="file">
@@ -83,18 +91,18 @@ $(function() {
 		<br />
 
 		<!-- Bootstrap Progress bar -->
-		Uploading Progress : 
+		Uploading Progress :
 		<div class="progress">
-		
+
 			<div id="progressBar" class="progress-bar progress-bar-success"
 				role="progressbar" aria-valuenow="0" aria-valuemin="0"
 				aria-valuemax="100" style="width: 0%">0%</div>
 		</div>
 
 		<!-- Alert -->
-	    <div id="alertMsg" style="color: red;font-size: 18px;"></div>
+		<div id="alertMsg" style="color: red; font-size: 18px;"></div>
 
-	
+
 	</div>
 	<div class="col-md-3"></div>
 </div>
